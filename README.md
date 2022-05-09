@@ -2,48 +2,48 @@
 
 ## 1. Duplicar Template
 
-Este proyecto permite generar 3 bases de datos en Notion (Categorías, Rutas y Cursos) con la información de la plataforma Platzi, esto permite tener un template en notion donde tomar tus apuntes de los cursos que vayas realizando en la plataforma.
+Este proyecto permite generar 3 bases de datos en Notion (Categorías, Rutas y Cursos) con la información de la plataforma Platzi. Esto permitirá tener un template en notion donde se puede tomar apuntes de los cursos que vayas realizando en la plataforma.
 
-Si aun no tienes manejo de la herramienta Notion puedes apuntarte al curso [Curso de Organización y Productividad con Notion](https://platzi.com/cursos/notion/)
+Si aún no tienes manejo de la herramienta Notion puedes apuntarte al curso [Curso de Organización y Productividad con Notion](https://platzi.com/cursos/notion/)
 
-> Puedes duplicar este template con toda la información ya completada.
+> Puedes duplicar este template con la información ya completada.
 > [Template con información completa al 09/05/2022 ](https://www.notion.so/nestcode/Platzi-2e012bf2af8e4024b78ad014d9c433e1)
 
 ![complete](./assets/complete.PNG)
 
 o
 
-> Puedes duplicar este template vacio y que va ha ser completado con la información actual de la plataforma.
+> Puedes duplicar este template vacio y que será completado con la información actual de la plataforma.
 > [Template vacio](https://www.notion.so/nestcode/Platzi-Empty-4ec749003f1443e4afcf91a6badd7bf2)
 
 ![empty](./assets/empty.PNG)
 
 ## 2. Completar el template vacio
 
-Para completar el template vacio haremos uso del presente repositorio, usando NodeJS y el API de Notion.
+Para completar el template vacio haremos uso del presente repositorio. Utilizando NodeJS y el API de Notion.
 
 ![charge](./assets/charge.gif)
 
 ### 2.1 Obtener `Internal Integration Token` de Notion
 
 - Ve a [https://www.notion.com/my-integrations](https://www.notion.com/my-integrations).
-- Click en el botón "+ New integration" .
-- Da un nombre a tu integración - por ejemplo "PlatziNotion".
+- Click en el botón `+ New integration`.
+- Da un nombre a tu integración, por ejemplo "PlatziNotion".
 - Selecciona el workspace donde vas a instalar la integración.
-- Click en "Submit" para crear la integración
-- Copia el "Internal Integration Token" de la siguiente página.
+- Click en `Submit` para crear la integración
+- Copia el `Internal Integration Token` de la siguiente página.
 
-<img src="https://files.readme.io/2ec137d-093ad49-create-integration.gif" alt="" title="093ad49-create-integration.gif" loading="lazy">
+<img src="https://files.readme.io/2ec137d-093ad49-create-integration.gif" alt="" title="093ad49-create-integration.gif" loading="lazy" width="600">
 
 > Imágenes referenciales obtenidas de [https://developers.notion.com/docs/getting-started](https://developers.notion.com/docs/getting-started)
 
 ### 2.2 Comparte las bases de datos ( Categorías, Rutas y Cursos ) con la integración
 
-Al principio, las integraciones no tienen acceso a ninguna página (o base de datos) del workspace. Un usuario debe compartir páginas específicas con una integración para que se pueda acceder a esas páginas mediante la API.
+Al inicio, las integraciones no tienen acceso a ninguna página (o base de datos) del workspace. Un usuario debe compartir páginas específicas con una integración para que se pueda acceder a esas páginas mediante la API.
 
-En cada una de las bases de datos haz clic en el botón "Share", haz clic en "Invite" y utiliza el selector para encontrar tu integración por su nombre.
+En cada una de las bases de datos, haz clic en el botón "Share". Luego, haz clic en "Invite" y utiliza el selector para encontrar tu integración por su nombre.
 
-<img src="https://files.readme.io/0a267dd-share-database-with-integration.gif" title="Click to close..."  height="auto" alt="Creating and sharing a database with your integration" loading="lazy">
+<img src="https://files.readme.io/0a267dd-share-database-with-integration.gif" title="Click to close..."  height="auto" alt="Creating and sharing a database with your integration" width="600" loading="lazy">
 
 > Imágenes referenciales obtenidas de [https://developers.notion.com/docs/getting-started](https://developers.notion.com/docs/getting-started)
 
@@ -81,7 +81,7 @@ https://www.notion.so/myworkspace/a8aec43384f447ed84390e8e42c2e089?v=...
 
 ### 2.7 Reemplazar la información en el archivo .env
 
-Reemplaza la información de los `ids` y el `Internal Integration Token` el el archivo `.env`
+Reemplaza la información de los `ids` y el `Internal Integration Token` en el archivo `.env`
 
 ```
 NOTION_KEY=secret_...
