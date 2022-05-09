@@ -4,6 +4,8 @@ import { addDomain, getJsonBetween } from "../utils/utils.js";
 import { addCourse, updateCourse } from "./course.js";
 import { addRoute, updateRoute } from "./route.js";
 
+const UPDATE = false;
+
 export const addCoursesFromRoutes = async ({ routes, coursesDBId }) => {
   for (const route of routes) {
     const routeUrl = route.properties.Url.url;
@@ -29,10 +31,12 @@ export const addCoursesFromRoutes = async ({ routes, coursesDBId }) => {
             url: addDomain(course.url),
           };
           if (courseIds.includes(courseToAdd.id)) {
-            await updateCourse({
-              coursePageId: pageIds[courseIds.indexOf(courseToAdd.id)],
-              course: courseToAdd,
-            });
+            if (UPDATE) {
+              await updateCourse({
+                coursePageId: pageIds[courseIds.indexOf(courseToAdd.id)],
+                course: courseToAdd,
+              });
+            }
           } else {
             await addCourse({
               databaseId: coursesDBId,
@@ -88,10 +92,12 @@ export const addRoutesFromCategories = async ({ categories, routesDBId }) => {
           url: addDomain(`/${route.slug}/`),
         };
         if (routeNames.includes(routeToAdd.name)) {
-          await updateRoute({
-            routePageId: pageIds[routeNames.indexOf(routeToAdd.name)],
-            route: routeToAdd,
-          });
+          if (UPDATE) {
+            await updateRoute({
+              routePageId: pageIds[routeNames.indexOf(routeToAdd.name)],
+              route: routeToAdd,
+            });
+          }
         } else {
           await addRoute({
             databaseId: routesDBId,
