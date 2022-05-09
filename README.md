@@ -26,7 +26,7 @@ Para completar el template vació haremos uso del presente repositorio, usando N
 
 ![charge](./assets/charge.gif)
 
-### 2.1 Obtener Internal Integration Token de Notion
+### 2.1 Obtener `Internal Integration Token` de Notion
 
 - Ve a [https://www.notion.com/my-integrations](https://www.notion.com/my-integrations).
 - Click en el botón "+ New integration" .
@@ -37,6 +37,8 @@ Para completar el template vació haremos uso del presente repositorio, usando N
 - Copia el "Internal Integration Token" de la siguiente página.
 
 <img src="https://files.readme.io/2ec137d-093ad49-create-integration.gif" alt="" title="093ad49-create-integration.gif" loading="lazy">
+
+> Imágenes referenciales obtenidas de [https://developers.notion.com/docs/getting-started](https://developers.notion.com/docs/getting-started)
 
 ### 2.2 Comparte las Databases ( Categorías, Rutas y Cursos ) con la integración
 
@@ -66,7 +68,7 @@ npm -i
 mv .env.template .env
 ```
 
-### 2.6 Extrae los ids de las Databases información 
+### 2.6 Extrae los `ids` de las Databases información 
 
 El ID de la base de datos es la parte de la URL que aparece después del nombre de su espacio de trabajo (si tiene uno) y la barra (/) y antes del signo de interrogación (?). El ID tiene 32 caracteres y contiene números y letras.
 
@@ -76,6 +78,8 @@ https://www.notion.so/myworkspace/a8aec43384f447ed84390e8e42c2e089?v=...
 ```
 
 ### 2.7 Reemplazar la información en el archivo .env
+
+Reemplaza la informacion de los `ids` y el `Internal Integration Token` el el archivo `.env`
 
 ```
 NOTION_KEY=secret_...
@@ -90,5 +94,5 @@ NOTION_CATEGORIES_DB_ID=...
 node index.js
 ```
 
-
+![charge](./assets/charge.gif)
 
