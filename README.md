@@ -53,10 +53,15 @@ En cada una de las bases de datos haz clic en el botón "Share", haz clic en "In
 git clone https://github.com/NestorPlasencia/platzi-notion.git
 ```
 
+```
+cd platzi-notion
+```
+
+
 ### 2.4 Instala las dependencias
 
 ```
-npm -i
+npm install
 ```
 
 ### 2.5 Renombra el archivo .env.template por .env
