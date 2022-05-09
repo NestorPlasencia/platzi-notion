@@ -11,14 +11,20 @@ Si aun no tienes manejo de la herramienta Notion puedes apuntarte al curso
 > Puedes duplicar este template con toda la información ya completada.
 > [Template con información completa al 09/05/2022 ](https://www.notion.so/nestcode/Platzi-2e012bf2af8e4024b78ad014d9c433e1)
 
+![complete](./assets/complete.PNG)
+
 o
 
 > Puedes duplicar este template vació y que va ha ser completado con la información actual de la plataforma.
 > [Template vació](https://www.notion.so/nestcode/Platzi-Empty-4ec749003f1443e4afcf91a6badd7bf2)
 
+![empty](./assets/empty.PNG)
+
 ## 2. Completar el template vació
 
 Para completar el template vació haremos uso del presente repositorio, usando NodeJS y el API de Notion.
+
+![charge](./assets/charge.gif)
 
 ### 2.1 Obtener Internal Integration Token de Notion
 
