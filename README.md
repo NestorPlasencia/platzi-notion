@@ -2,11 +2,9 @@
 
 ## 1. Duplicar Template
 
-Este proyecto permite generar 3 Databases en Notion (Categorías, Rutas y Cursos) con la información de la plataforma Platzi, esto permite tener un template en notion donde tomar tus apuntes de los cursos que vayas realizando en la plataforma.
+Este proyecto permite generar 3 bases de datos en Notion (Categorías, Rutas y Cursos) con la información de la plataforma Platzi, esto permite tener un template en notion donde tomar tus apuntes de los cursos que vayas realizando en la plataforma.
 
-Si aun no tienes manejo de la herramienta Notion puedes apuntarte al curso
-
-[Curso de Organización y Productividad con Notion](https://platzi.com/cursos/notion/)
+Si aun no tienes manejo de la herramienta Notion puedes apuntarte al curso [Curso de Organización y Productividad con Notion](https://platzi.com/cursos/notion/)
 
 > Puedes duplicar este template con toda la información ya completada.
 > [Template con información completa al 09/05/2022 ](https://www.notion.so/nestcode/Platzi-2e012bf2af8e4024b78ad014d9c433e1)
@@ -15,14 +13,14 @@ Si aun no tienes manejo de la herramienta Notion puedes apuntarte al curso
 
 o
 
-> Puedes duplicar este template vació y que va ha ser completado con la información actual de la plataforma.
-> [Template vació](https://www.notion.so/nestcode/Platzi-Empty-4ec749003f1443e4afcf91a6badd7bf2)
+> Puedes duplicar este template vacio y que va ha ser completado con la información actual de la plataforma.
+> [Template vacio](https://www.notion.so/nestcode/Platzi-Empty-4ec749003f1443e4afcf91a6badd7bf2)
 
 ![empty](./assets/empty.PNG)
 
-## 2. Completar el template vació
+## 2. Completar el template vacio
 
-Para completar el template vació haremos uso del presente repositorio, usando NodeJS y el API de Notion.
+Para completar el template vacio haremos uso del presente repositorio, usando NodeJS y el API de Notion.
 
 ![charge](./assets/charge.gif)
 
@@ -30,9 +28,8 @@ Para completar el template vació haremos uso del presente repositorio, usando N
 
 - Ve a [https://www.notion.com/my-integrations](https://www.notion.com/my-integrations).
 - Click en el botón "+ New integration" .
-- Da un nombre a tu integración - I chose "PlatziNotion".
+- Da un nombre a tu integración - por ejemplo "PlatziNotion".
 - Selecciona el workspace donde vas a instalar la integración.
-- Selecciona las capacidades que obtendrá la integración.
 - Click en "Submit" para crear la integración
 - Copia el "Internal Integration Token" de la siguiente página.
 
@@ -40,11 +37,11 @@ Para completar el template vació haremos uso del presente repositorio, usando N
 
 > Imágenes referenciales obtenidas de [https://developers.notion.com/docs/getting-started](https://developers.notion.com/docs/getting-started)
 
-### 2.2 Comparte las Databases ( Categorías, Rutas y Cursos ) con la integración
+### 2.2 Comparte las bases de datos ( Categorías, Rutas y Cursos ) con la integración
 
 Al principio, las integraciones no tienen acceso a ninguna página (o base de datos) del workspace. Un usuario debe compartir páginas específicas con una integración para que se pueda acceder a esas páginas mediante la API.
 
-En cada una de las Databases haz clic en el botón "Share" y utiliza el selector para encontrar tu integración por su nombre, luego haz clic en "Invite".
+En cada una de las bases de datos haz clic en el botón "Share", haz clic en "Invite" y utiliza el selector para encontrar tu integración por su nombre.
 
 <img src="https://files.readme.io/0a267dd-share-database-with-integration.gif" title="Click to close..."  height="auto" alt="Creating and sharing a database with your integration" loading="lazy">
 
@@ -68,7 +65,7 @@ npm -i
 mv .env.template .env
 ```
 
-### 2.6 Extrae los `ids` de las Databases información 
+### 2.6 Extrae los `ids` de las bases de datos 
 
 El ID de la base de datos es la parte de la URL que aparece después del nombre de su espacio de trabajo (si tiene uno) y la barra (/) y antes del signo de interrogación (?). El ID tiene 32 caracteres y contiene números y letras.
 
@@ -79,7 +76,7 @@ https://www.notion.so/myworkspace/a8aec43384f447ed84390e8e42c2e089?v=...
 
 ### 2.7 Reemplazar la información en el archivo .env
 
-Reemplaza la informacion de los `ids` y el `Internal Integration Token` el el archivo `.env`
+Reemplaza la información de los `ids` y el `Internal Integration Token` el el archivo `.env`
 
 ```
 NOTION_KEY=secret_...
