@@ -44,14 +44,12 @@ export const generatePayload = (element) => {
     };
   }
 
-  if (!!element?.color) {
+  if (!!element?.color && element.color !== "") {
     properties.Color = {
-      type: "multi_select",
-      multi_select: [
-        {
-          name: element.color === "" ? null : element.color,
-        },
-      ],
+      type: "select",
+      select: {
+        name: element.color,
+      },
     };
   }
 
@@ -97,5 +95,6 @@ export const generatePayload = (element) => {
       icon,
     };
   }
+
   return { properties };
 };

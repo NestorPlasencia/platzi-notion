@@ -4,7 +4,7 @@ import { addDomain, getJsonBetween } from "../utils/utils.js";
 import { addCourse, updateCourse } from "./course.js";
 import { addRoute, updateRoute } from "./route.js";
 
-const UPDATE = false;
+const UPDATE = true;
 
 export const addCoursesFromRoutes = async ({ routes, coursesDBId }) => {
   for (const route of routes) {
