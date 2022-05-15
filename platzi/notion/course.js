@@ -1,6 +1,6 @@
-import { generatePayload } from "../helpers/index.js";
-import { addPage, getPage, updatePage } from "../notion/page.js";
-import { uniqueArrValues } from "../utils/utils.js";
+import { generatePayload } from "../../helpers/index.js";
+import { addPage, getPage, updatePage } from "../../notion/page.js";
+import { uniqueArrValues } from "../../utils/utils.js";
 
 export const getCourse = async ({ coursePageId }) => {
   try {

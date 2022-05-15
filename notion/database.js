@@ -1,6 +1,6 @@
 import { notion } from "./index.js";
 
-export const getDataBaseContent = async ({
+export const getDataBaseItems = async ({
   databaseId,
   page_size = 100,
   cursor = undefined,
@@ -17,12 +17,12 @@ export const getDataBaseContent = async ({
   }
 };
 
-export const getFullDataBaseContent = async ({ databaseId }) => {
+export const getAllDataBaseItems = async ({ databaseId }) => {
   let results = [];
   let hasMore = true;
   let cursor = undefined;
   while (hasMore) {
-    const data = await getDataBaseContent({
+    const data = await getDataBaseItems({
       databaseId,
       cursor,
     });
