@@ -12,8 +12,8 @@ export const getRoute = async ({ routePageId }) => {
 };
 
 export const addRoute = async ({ databaseId, route }) => {
-  const payload = generatePayload(route);
   try {
+    const payload = generatePayload(route);
     const response = await addPage({ databaseId, payload });
     console.log("Success! Route added.");
     return response;
@@ -23,13 +23,16 @@ export const addRoute = async ({ databaseId, route }) => {
 };
 
 export const updateRoute = async ({ routePageId, route }) => {
-  const courseData = await getRoute({ routePageId });
-  const prevCategoryIds = courseData.properties.Categories.relation.map(
-    (e) => e.id
-  );
-  route.categories = uniqueArrValues([...prevCategoryIds, ...route.categories]);
-  const payload = generatePayload(route);
   try {
+    const courseData = await getRoute({ routePageId });
+    const prevCategoryIds = courseData.properties.Categories.relation.map(
+      (e) => e.id
+    );
+    route.categories = uniqueArrValues([
+      ...prevCategoryIds,
+      ...route.categories,
+    ]);
+    const payload = generatePayload(route);
     const response = await updatePage({ pageId: routePageId, payload });
     console.log("Success! Route updated.");
     return response;

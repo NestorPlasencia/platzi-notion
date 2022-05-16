@@ -18,18 +18,21 @@ export const getDataBaseItems = async ({
 };
 
 export const getAllDataBaseItems = async ({ databaseId }) => {
-  let results = [];
-  let hasMore = true;
-  let cursor = undefined;
-  while (hasMore) {
-    const data = await getDataBaseItems({
-      databaseId,
-      cursor,
-    });
-    results.push(...data.results);
-    cursor = data.next_cursor;
-    hasMore = data.has_more;
+  try {
+    let results = [];
+    let hasMore = true;
+    let cursor = undefined;
+    while (hasMore) {
+      const data = await getDataBaseItems({
+        databaseId,
+        cursor,
+      });
+      results.push(...data.results);
+      cursor = data.next_cursor;
+      hasMore = data.has_more;
+    }
+    return results;
+  } catch (error) {
+    throw error;
   }
-  console.log("Success! Database consulted.");
-  return results;
 };

@@ -1,38 +1,63 @@
 import { notion } from "./index.js";
 
 export const getBlock = async ({ blockId }) => {
-  const response = await notion.blocks.retrieve({ block_id: blockId });
-  return response;
+  try {
+    const response = await notion.blocks.retrieve({ block_id: blockId });
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getBlockChildren = async ({ blockId }) => {
-  const response = await notion.blocks.children.list({ block_id: blockId });
-  return response;
+  try {
+    const response = await notion.blocks.children.list({ block_id: blockId });
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getAllBlockChildren = async ({ blockId }) => {
-  let results = [];
-  let hasMore = true;
-  let cursor = undefined;
-  while (hasMore) {
-    const data = await getBlockChildren({
-      blockId,
-      cursor,
-    });
-    results.push(...data.results);
-    cursor = data.next_cursor;
-    hasMore = data.has_more;
+  try {
+    let results = [];
+    let hasMore = true;
+    let cursor = undefined;
+    while (hasMore) {
+      const data = await getBlockChildren({
+        blockId,
+        cursor,
+      });
+      results.push(...data.results);
+      cursor = data.next_cursor;
+      hasMore = data.has_more;
+    }
+    return results;
+  } catch (error) {
+    throw error;
   }
-  console.log("Success! Blocks consulted.");
-  return results;
 };
 
 export const updateBlock = async ({ blockId, payload }) => {
-  const response = await notion.blocks.update({ block_id: blockId, ...payload });
-  return response;
+  try {
+    const response = await notion.blocks.update({
+      block_id: blockId,
+      ...payload,
+    });
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const appendBlockChildren = async ({ blockId, children }) => {
-  const response = await notion.blocks.children.append({ block_id: blockId, children });
-  return response;
+  try {
+    const response = await notion.blocks.children.append({
+      block_id: blockId,
+      children,
+    });
+    return response;
+  } catch (error) {
+    throw error;
+  }
 };

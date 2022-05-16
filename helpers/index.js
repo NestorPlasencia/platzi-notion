@@ -98,3 +98,37 @@ export const generatePayload = (element) => {
 
   return { properties };
 };
+
+export const generateHeading1 = (text) => {
+  return {
+    object: "block",
+    type: "heading_1",
+    heading_1: {
+      rich_text: [
+        {
+          type: "text",
+          text: {
+            content: text,
+          },
+        },
+      ],
+    },
+  };
+};
+
+export const generateHeading2 = (text) => {
+  return {
+    object: "block",
+    type: "heading_2",
+    heading_2: {
+      rich_text: [
+        {
+          type: "text",
+          text: {
+            content: text,
+          },
+        },
+      ],
+    },
+  };
+};

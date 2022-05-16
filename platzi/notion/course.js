@@ -12,10 +12,10 @@ export const getCourse = async ({ coursePageId }) => {
 };
 
 export const addCourse = async ({ databaseId, course }) => {
-  const payload = generatePayload(course);
   try {
+    const payload = generatePayload(course);
     const response = await addPage({ databaseId, payload });
-    console.log("Success! Course added.");
+    console.log(`${course.title} added.`);
     return response;
   } catch (error) {
     throw error;
@@ -23,13 +23,15 @@ export const addCourse = async ({ databaseId, course }) => {
 };
 
 export const updateCourse = async ({ coursePageId, course }) => {
-  const courseData = await getCourse({ coursePageId });
-  const prevRoutesIds = courseData.properties.Routes.relation.map((e) => e.id);
-  course.routes = uniqueArrValues([...prevRoutesIds, ...course.routes]);
-  const payload = generatePayload(course);
   try {
+    const courseData = await getCourse({ coursePageId });
+    const prevRoutesIds = courseData.properties.Routes.relation.map(
+      (e) => e.id
+    );
+    course.routes = uniqueArrValues([...prevRoutesIds, ...course.routes]);
+    const payload = generatePayload(course);
     const response = await updatePage({ pageId: coursePageId, payload });
-    console.log("Success! Course updated.");
+    console.log(`${course.title} updated.`);
     return response;
   } catch (error) {
     throw error;

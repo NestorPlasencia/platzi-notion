@@ -1,13 +1,13 @@
-import { getWebPage } from "../../api/index.js";
+import axios from "axios";
+import * as cheerio from "cheerio";
 import { getJsonBetween } from "../../utils/utils.js";
 
 export const getRoutesInfoFromCategoryUrl = async ({ categoryUrl }) => {
   try {
     if (categoryUrl !== "https://platzi.com/categorias/english/") {
-      const result = await getWebPage({ url: categoryUrl });
-      const html = result.data;
+      const response = await axios.get(categoryUrl);
       const routes = getJsonBetween(
-        html,
+        response.data,
         'learningPathsCategories": ',
         '\\, "plans"'
       );
@@ -30,9 +30,12 @@ export const getRoutesInfoFromCategoryUrl = async ({ categoryUrl }) => {
 
 export const getCoursesInfoFromRouteUrl = async ({ routeUrl }) => {
   try {
-    const result = await getWebPage({ url: routeUrl });
-    const html = result.data;
-    const steps = getJsonBetween(html, 'steps": ', '\\, "count_items"');
+    const response = await axios.get(routeUrl);
+    const steps = getJsonBetween(
+      response.data,
+      'steps": ',
+      '\\, "count_items"'
+    );
     const courses = [];
     for (const step of steps) {
       for (const course of step.courses) {
@@ -40,6 +43,35 @@ export const getCoursesInfoFromRouteUrl = async ({ routeUrl }) => {
       }
     }
     return courses;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getMaterialsInfoFromCourseUrl = async ({ courseUrl }) => {
+  try {
+    const response = await axios.get(courseUrl);
+    const doc = cheerio.load(response.data);
+    const data = [];
+    doc(".Tabs-content .ContentBlock").each((_, b) => {
+      const block = cheerio.load(b.children);
+      const dataBlock = {
+        name: block(".ContentBlock-head-title").text(),
+      };
+      const materials = [];
+      block(".ContentClass").each((_, i) => {
+        const item = cheerio.load(i.children);
+        const dataItem = {
+          name: item(".ContentClass-content-title").text(),
+          url: item("a").attr("href"),
+          id: item("a").attr("href").split("/")[3].split("-")[0],
+        };
+        materials.push(dataItem);
+      });
+      dataBlock.materials = materials;
+      data.push(dataBlock);
+    });
+    return data;
   } catch (error) {
     throw error;
   }

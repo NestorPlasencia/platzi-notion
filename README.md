@@ -7,14 +7,14 @@ Este proyecto permite generar 3 bases de datos en Notion (Categorías, Rutas y C
 Si aún no tienes manejo de la herramienta Notion puedes apuntarte al curso [Curso de Organización y Productividad con Notion](https://platzi.com/cursos/notion/)
 
 > Puedes duplicar este template con la información ya completada.
-> [Template con información completa al 09/05/2022 ](https://www.notion.so/nestcode/Platzi-2e012bf2af8e4024b78ad014d9c433e1)
+> [Template con información completa al 09/05/2022 ](https://www.notion.so/nestcode/PlatziNotes-Complete-93bf13484c66485790fad49467661fc8)
 
 ![complete](./assets/complete.PNG)
 
 o
 
 > Puedes duplicar este template vacio y que será completado con la información actual de la plataforma.
-> [Template vacio](https://www.notion.so/nestcode/Platzi-Empty-4ec749003f1443e4afcf91a6badd7bf2)
+> [Template vacio](https://www.notion.so/nestcode/PlatziNotes-Empty-861e3e7535d3474dae5093b717a845e5)
 
 ![empty](./assets/empty.PNG)
 
@@ -57,7 +57,6 @@ git clone https://github.com/NestorPlasencia/platzi-notion.git
 cd platzi-notion
 ```
 
-
 ### 2.4 Instala las dependencias
 
 ```
@@ -70,7 +69,7 @@ npm install
 mv .env.template .env
 ```
 
-### 2.6 Extrae los `ids` de las bases de datos 
+### 2.6 Extrae los `ids` de las bases de datos
 
 El ID de la base de datos es la parte de la URL que aparece después del nombre de su espacio de trabajo (si tiene uno) y la barra (/) y antes del signo de interrogación (?). El ID tiene 32 caracteres y contiene números y letras.
 
@@ -97,4 +96,3 @@ node index.js
 ```
 
 ![charge](./assets/charge.gif)
-
